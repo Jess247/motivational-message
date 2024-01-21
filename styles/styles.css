@@ -1,1 +1,69 @@
-/*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+body {
+  background: #BAE6FD;
+  font-family: "Open Sans", sans-serif;
+  text-shadow: 0 0 5px black;
+  text-align: center;
+  color: #ffffff;
+}
+body .container {
+  width: 375px;
+  margin: 2em auto;
+}
+body .container img {
+  width: 150px;
+}
+body .form {
+  display: flex;
+  flex-direction: column;
+}
+body .form .textarea {
+  border: none;
+  background: #fbf7fa;
+  border-radius: 10px;
+  padding: 1em;
+  color: black;
+}
+body .form .textarea:focus-visible, body .form .textfield:focus-visible {
+  outline: 2px solid #E855DE;
+}
+body .form .textfields {
+  margin: 1em 0;
+}
+body .form .textfields .textfield {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em;
+}
+body .form .textfields .textfield:last-of-type {
+  margin-left: 1em;
+}
+body .form .hidden {
+  display: none;
+}
+body .form .btn {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background: linear-gradient(90deg, #E855DE, #24B1FE);
+  box-shadow: 0 0 5px black;
+}
+body .form:hover .btn {
+  background: linear-gradient(300deg, #E855DE, #24B1FE);
+}
+body .msg {
+  text-align: left;
+  background: #fbf7fa;
+  padding: 0.2em 1em;
+  border-radius: 8px;
+  border-bottom: 2px solid #E855DE;
+  border-top: 2px solid #24B1FE;
+  color: black;
+  text-shadow: none;
+  margin: 1em 0;
+}/*# sourceMappingURL=styles.css.map */

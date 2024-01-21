@@ -4,26 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css".css>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Motivational Message</title>
 </head>
 <body>
     <main class="container">
         <div class="img-container">
-            <img src="" alt="">
+            <img src="./img/kreativitat.png" alt="">
         </div>
         <h1>Motivational Words</h1>
         <form action="submit" class="form">
             <label class="hidden" for="message">Message: </label>
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Write a motivational message to someone..." required></textarea>
-            <label class="hidden" for="to-textfield">To: </label>
-            <input type="text" id="to-texfield" required>
-            <label class="hidden" for="from-textfield">From: </label>
-            <input type="text" id="from-texfield" required>
-            <button type="submit">Send message</button>
+            <textarea name="message" class="textarea" id="message" cols="30" rows="10" placeholder="Write a motivational message to someone..." required></textarea>
+            <div class="textfields">
+                <label class="hidden" for="to-textfield">To: </label>
+                <input type="text" class="textfield" id="to-texfield" placeholder="To..." required>
+                <label class="hidden" for="from-textfield">From: </label>
+                <input type="text" class="textfield" id="from-texfield" placeholder="From..." required>
+            </div>
+            <button type="submit" class="btn">Send message</button>
         </form>
         <div class="msg-container">
             <h2 class="msg-heading">Messages</h2>
-            <div class="messages"></div>
+            <div class="messages">
+                <div class="msg">
+                    <p class="to">Alice</p>
+                    <p class="text">Hey there, you got this!</p>
+                    <p class="from">Sue</p>
+                </div>
+                <div class="msg">
+                    <p class="to">Alice</p>
+                    <p class="text">Hey there, you got this!</p>
+                    <p class="from">Sue</p>
+                </div>
+            </div>
         </div>
     </main>
 </body>
