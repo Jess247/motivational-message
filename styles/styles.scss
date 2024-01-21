@@ -81,7 +81,12 @@ body {
         border-top: 2px solid $accent-cold;
         color: invert($color: $primary-clr);
         text-shadow: none;
+        line-height: .8;
         margin: 1em 0;
+
+        .to, .from {
+            font-weight: 700;
+        }
     }
 }
 

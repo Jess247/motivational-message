@@ -65,5 +65,9 @@ body .msg {
   border-top: 2px solid #24B1FE;
   color: black;
   text-shadow: none;
+  line-height: 0.8;
   margin: 1em 0;
+}
+body .msg .to, body .msg .from {
+  font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */
