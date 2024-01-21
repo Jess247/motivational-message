@@ -7,8 +7,9 @@ body {
   color: #ffffff;
 }
 body .container {
-  width: 375px;
+  max-width: 375px;
   margin: 2em auto;
+  padding: 1em;
 }
 body .container img {
   width: 150px;
@@ -28,9 +29,15 @@ body .form .textarea:focus-visible, body .form .textfield:focus-visible {
   outline: 2px solid #E855DE;
 }
 body .form .textfields {
+  width: 100%;
   margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 body .form .textfields .textfield {
+  width: 40%;
   border: none;
   border-radius: 8px;
   padding: 0.5em;
@@ -70,4 +77,6 @@ body .msg {
 }
 body .msg .to, body .msg .from {
   font-weight: 700;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */
