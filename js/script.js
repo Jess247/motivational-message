@@ -13,8 +13,12 @@ function renderMsg() {
     <p class="text">${textareaEl.value}</p>
     <p class="from">${textfieldFromEl.value}</p>
     </div>`
+    clearValues()
+    msgContainer.innerHTML += msg 
+}
 
-    msgContainer.innerHTML = msg
-    
-    
+function clearValues() {
+    textareaEl.value = ""
+    textfieldFromEl.value = ""
+    textfieldToEl.value = ""
 }
