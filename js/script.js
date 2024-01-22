@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
 
 const firebaseConfig = {
     databaseURL: "https://messgage-app-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -9,40 +9,44 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const msgInDB = ref(database, 'messages/')
 
-const msg = {
-    form: "",
-    text: "",
-    to: ""
-}
-console.log(msgInDB)
-
-
-console.log(app)
-
 const textareaEl = document.querySelector(".textarea")
 const textfieldToEl = document.querySelector("#to-textfield")
 const textfieldFromEl =  document.querySelector("#from-textfield")
 const btn = document.querySelector(".btn")
 const msgContainer = document.querySelector(".messages")
 
-btn.addEventListener("click", renderMsg)
+btn.addEventListener("click", writeMsg)
 
-function writeMsg() {
-    msg.form = textfieldFromEl.value
-    msg.to = textfieldToEl.value
-    msg.text = textareaEl.value
-    push(msgInDB, msg)
-}
-function renderMsg() {
+onValue(msgInDB, (snapshot) => {
+    if(snapshot.exists()) {
+        let msgArray = Object.entries(snapshot.val())
+        console.log(msgArray[0][1].from)
+        for (let i = 0; i < msgArray.length; i++) {
+            renderMsg(msgArray[i][1].to, msgArray[i][1].text, msgArray[i][1].from)
+        }    
+    } else {
+        msgContainer.innerHTML = "There are no messages..."
+    }
+})
+
+function renderMsg(to, text, from) {
     let msgHTML = `
     <div class="msg">
-    <p class="to">${textfieldToEl.value}</p>
-    <p class="text">${textareaEl.value}</p>
-    <p class="from">${textfieldFromEl.value}</p>
+    <p class="to">${to}</p>
+    <p class="text">${text}</p>
+    <p class="from">${from}</p>
     </div>`
-    writeMsg()
     clearValues()
     msgContainer.innerHTML += msgHTML 
+}
+function writeMsg() {
+    const msg = {
+        from: textfieldFromEl.value,
+        text: textareaEl.value,
+        to:  textfieldToEl.value
+    }    
+    
+    push(msgInDB, msg)
 }
 
 function clearValues() {
