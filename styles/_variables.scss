@@ -1,0 +1,9 @@
+$primary-clr: #ffffff;
+$accent-light: #fbf7fa;
+$accent-bright: #E855DE;
+$accent-cold: #24B1FE;
+$bg-light: #BAE6FD;
+$gradient90Deg: linear-gradient(90deg,$accent-bright, $accent-cold);
+$gradient300Deg: linear-gradient(300deg,$accent-bright, $accent-cold);
+$font-family: "Open Sans", sans-serif;
+$shadow: 0 0 5px invert($primary-clr);

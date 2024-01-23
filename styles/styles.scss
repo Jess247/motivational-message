@@ -1,99 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-$primary-clr: #ffffff;
-$accent-light: #fbf7fa;
-$accent-bright: #E855DE;
-$accent-cold: #24B1FE;
-$bg-light: #BAE6FD;
-$font-family: "Open Sans", sans-serif;
-$shadow: 0 0 5px invert($primary-clr);
+@import './resets'; 
+@import './variables';
 
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 body {
     background: $bg-light;
     font-family: $font-family;
     text-shadow: $shadow;
     text-align: center;
     color: $primary-clr;
+}
 
 
-    .container {
-        max-width: 375px;
-        margin: 2em auto;
-        padding: 1em;
+.container {
+    max-width: 375px;
+    margin: 2em auto;
+    padding: 1em;
 
-        img {
-            width: 150px;
-        }
+    img {
+        width: 150px;
     }
-    .form {
-        display: flex;
-        flex-direction: column;
+}
+.form {
+    display: flex;
+    flex-direction: column;
 
-        .textarea {
-            border: none;
-            background: $accent-light;
-            border-radius: 10px;
-            padding: 1em;
-            color: invert($color: $primary-clr);
-        }
-        .textarea:focus-visible, .textfield:focus-visible {
-            outline: 2px solid $accent-bright;
-        }
-
-        .textfields {
-            width: 100%;
-            margin: 1em 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1em;
-
-            .textfield {
-                width: 40%;
-                border: none;
-                border-radius: 8px;
-                padding: .5em;
-            }
-
-            .textfield:last-of-type {
-                margin-left: 1em;
-            }
-        }
-        .hidden {
-            display: none;
-        }
-
-        .btn {
-            width: 90%;
-            margin: 0 auto;
-            padding: .5em;
-            border: none;
-            outline: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            color: $primary-clr;
-            background: linear-gradient(90deg,$accent-bright, $accent-cold);
-            box-shadow: $shadow;
-        }
-         &:hover .btn {
-            background: linear-gradient(300deg,$accent-bright, $accent-cold);
-
-         }   
-    }
-    .msg {
-        text-align: left;
+    .textarea {
+        border: none;
         background: $accent-light;
-        padding: .2em 1em;
-        border-radius: 8px;
-        border-bottom: 2px solid $accent-bright;
-        border-top: 2px solid $accent-cold;
+        border-radius: 10px;
+        padding: 1em;
         color: invert($color: $primary-clr);
-        text-shadow: none;
-        line-height: .8;
-        margin: 1em 0;
+    }
+    .textarea:focus-visible, .textfield:focus-visible {
+        outline: 2px solid $accent-bright;
+    }
 
-        .to, .from {
-            font-weight: 700;
+    .textfields {
+        width: 100%;
+        margin: 1em 0;
+        @include flexCenter;
+        flex-wrap: wrap;
+        gap: 1em;
+
+        .textfield {
+            width: 40%;
+            border: none;
+            border-radius: 8px;
+            padding: .5em;
         }
+
+        .textfield:last-of-type {
+            margin-left: 1em;
+        }
+    }
+    .hidden {
+        display: none;
+    }
+
+    .btn {
+        width: 90%;
+        margin: 0 auto;
+        padding: .5em;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        color: $primary-clr;
+        background: $gradient90Deg;
+        box-shadow: $shadow;
+
+        &:hover {
+            background: $gradient300Deg;
+         }
+    }
+   
+}
+.msg {
+    text-align: left;
+    background: $accent-light;
+    padding: .2em 1em;
+    border-radius: 8px;
+    border-bottom: 2px solid $accent-bright;
+    border-top: 2px solid $accent-cold;
+    color: invert($color: $primary-clr);
+    text-shadow: none;
+    margin: 1em 0;
+
+    .to, .from {
+        font-weight: 700;
+        margin: .5em 0;
     }
 }
 
