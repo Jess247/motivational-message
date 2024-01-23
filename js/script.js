@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
 
 const firebaseConfig = {
     databaseURL: "https://messgage-app-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -22,23 +22,31 @@ onValue(msgInDB, (snapshot) => {
         let msgArray = Object.entries(snapshot.val())
         console.log(msgArray[0][1].from)
         for (let i = 0; i < msgArray.length; i++) {
-            renderMsg(msgArray[i][1].to, msgArray[i][1].text, msgArray[i][1].from)
+            let currentMsgID = msgArray[i][0]
+            renderMsg(msgArray[i][1].to, msgArray[i][1].text, msgArray[i][1].from,currentMsgID)
         }    
     } else {
         msgContainer.innerHTML = "There are no messages..."
     }
 })
 
-function renderMsg(to, text, from) {
-    let msgHTML = `
-    <div class="msg">
+function renderMsg(to, text, from,msgId) {
+    const msgLocation = ref(database, `messages/${msgId}`)
+    let msgEl = document.createElement("div")
+    msgEl.classList.add("msg")
+    msgEl.innerHTML = `
     <p class="to">${to}</p>
     <p class="text">${text}</p>
-    <p class="from">${from}</p>
-    </div>`
+    <p class="from">${from}</p>`
+
+    msgEl.addEventListener("click", () => {
+        remove(msgLocation)
+    })
+    
     clearValues()
-    msgContainer.innerHTML += msgHTML 
+    msgContainer.append(msgEl)
 }
+
 
 function writeMsg() {
     const msg = {
