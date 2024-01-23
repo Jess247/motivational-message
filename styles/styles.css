@@ -20,11 +20,13 @@ body {
 }
 .container img {
   width: 150px;
+  margin-bottom: 1em;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  padding: 1em 0;
 }
 .form .textarea {
   border: none;
@@ -73,7 +75,10 @@ body {
   background: linear-gradient(300deg, #E855DE, #24B1FE);
 }
 
-.msg {
+.msg-container .msg-heading {
+  margin: 0.5em 0;
+}
+.msg-container .msg {
   text-align: left;
   background: #fbf7fa;
   padding: 0.2em 1em;
@@ -84,7 +89,7 @@ body {
   text-shadow: none;
   margin: 1em 0;
 }
-.msg .to, .msg .from {
+.msg-container .msg .to, .msg-container .msg .from {
   font-weight: 700;
   margin: 0.5em 0;
 }

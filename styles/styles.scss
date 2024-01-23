@@ -23,11 +23,13 @@ body {
 
     img {
         width: 150px;
+        margin-bottom: 1em;
     }
 }
 .form {
     display: flex;
     flex-direction: column;
+    padding: 1em 0;
 
     .textarea {
         border: none;
@@ -80,20 +82,26 @@ body {
     }
    
 }
-.msg {
-    text-align: left;
-    background: $accent-light;
-    padding: .2em 1em;
-    border-radius: 8px;
-    border-bottom: 2px solid $accent-bright;
-    border-top: 2px solid $accent-cold;
-    color: invert($color: $primary-clr);
-    text-shadow: none;
-    margin: 1em 0;
 
-    .to, .from {
-        font-weight: 700;
+.msg-container {
+    .msg-heading {
         margin: .5em 0;
+    }
+    .msg {
+        text-align: left;
+        background: $accent-light;
+        padding: .2em 1em;
+        border-radius: 8px;
+        border-bottom: 2px solid $accent-bright;
+        border-top: 2px solid $accent-cold;
+        color: invert($color: $primary-clr);
+        text-shadow: none;
+        margin: 1em 0;
+    
+        .to, .from {
+            font-weight: 700;
+            margin: .5em 0;
+        }
     }
 }
 

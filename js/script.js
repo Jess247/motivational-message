@@ -20,7 +20,7 @@ btn.addEventListener("click", writeMsg)
 onValue(msgInDB, (snapshot) => {
     if(snapshot.exists()) {
         let msgArray = Object.entries(snapshot.val())
-        console.log(msgArray[0][1].from)
+  
         for (let i = 0; i < msgArray.length; i++) {
             let currentMsgID = msgArray[i][0]
             renderMsg(msgArray[i][1].to, msgArray[i][1].text, msgArray[i][1].from,currentMsgID)
