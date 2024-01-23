@@ -20,7 +20,7 @@ btn.addEventListener("click", writeMsg)
 onValue(msgInDB, (snapshot) => {
     if(snapshot.exists()) {
         let msgArray = Object.entries(snapshot.val())
-  
+        clearMsgList()  
         for (let i = 0; i < msgArray.length; i++) {
             let currentMsgID = msgArray[i][0]
             renderMsg(msgArray[i][1].to, msgArray[i][1].text, msgArray[i][1].from,currentMsgID)
@@ -56,6 +56,10 @@ function writeMsg() {
     }    
     
     push(msgInDB, msg)
+}
+
+function clearMsgList() {
+    msgContainer.innerHTML = ""
 }
 
 function clearValues() {
