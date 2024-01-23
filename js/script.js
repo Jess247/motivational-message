@@ -39,6 +39,7 @@ function renderMsg(to, text, from) {
     clearValues()
     msgContainer.innerHTML += msgHTML 
 }
+
 function writeMsg() {
     const msg = {
         from: textfieldFromEl.value,
